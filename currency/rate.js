@@ -24,7 +24,6 @@ module.exports = function(req, res, next) {
   };
 
   request(options, function(error, response, body){
-    console.log(arr);
     var rate = body.rates[arr[1]];
     if (arr[2]) {
       rate = rate * arr[2];
