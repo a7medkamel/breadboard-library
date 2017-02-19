@@ -41,6 +41,7 @@
     "node-tts-api": "0.0.5",
     "node-uuid": "^1.4.7",
     "phantom": "^4.0.0",
+    "phantomjs-prebuilt": "^2.1.14",
     "request": "^2.79.0",
     "tidy-markdown": "^2.0.4",
     "underscore": "^1.8.3",
