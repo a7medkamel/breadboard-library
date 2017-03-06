@@ -17,7 +17,7 @@ var phantom = require('phantom');
 module.exports = function(req, res, next) {
   phantom
     .create()
-    .then((ph) => {
+    .tap((ph) => {
       return ph
               .createPage()
               .then((page) => {
@@ -45,9 +45,9 @@ module.exports = function(req, res, next) {
 
                           res.end(new Buffer(base64, 'base64'), 'binary');
                         });
-              })
-              .finally(() => {
-                ph.exit();
               });
+    })
+    .finally(() => {
+      return ph.kill().then(() => ph.exit());
     });
 };
