@@ -12,7 +12,9 @@
 @pragma editor
 */
 
-var phantom = require('phantom');
+var phantom = require('phantom')
+  , Promise = require('bluebird')
+  ;
 
 module.exports = function(req, res, next) {
   phantom
@@ -48,6 +50,11 @@ module.exports = function(req, res, next) {
               });
     })
     .finally(() => {
-      return ph.kill().then(() => ph.exit());
+      let exec = require('child_process').exec
+    
+      return ph
+              .kill()
+              .then(() => ph.exit())
+              .then(() => Promise.fromCallback((cb) => exec(`kill ${ph.process.pid}`, cb)));
     });
 };
