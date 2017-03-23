@@ -35,7 +35,7 @@ module.exports = function(req, res, next) {
                 return page
                         .open(url)
                         .then((status) => {
-                          console.log('opened:', req.body);
+                          console.log('opened:', url);
                           console.log('rendering png...');
 
                           return page.renderBase64('PNG');
