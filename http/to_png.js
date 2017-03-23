@@ -26,7 +26,7 @@ module.exports = function(req, res, next) {
                 return page.property('viewportSize', { width: 1920, height: 1080 });
               })
               .then((page) => {
-                var url = req.body;
+                var url = req.body || req.query.url;
                 if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
                     url = "http://" + url;
                 }
