@@ -3,7 +3,6 @@
 @input
 {
   "content-type" : "text/plain",
-  "type" : "buffer",
   "example" : "line 1\nline2\nline3\n"
 }
 @output
@@ -11,6 +10,7 @@
   "content-type" : "application/javascript"
 }
 @pragma editor replace
+@pragma stream
 */
 
 module.exports = function(req, res, next) {

@@ -3,7 +3,6 @@
 @input
 {
   "content-type" : "text/plain",
-  "type" : "buffer",
   "example" : "SSBhbSBwbGFpbiB0ZXh0IQ=="
 }
 @output
@@ -11,6 +10,7 @@
   "content-type" : "text/plain"
 }
 @pragma editor replace
+@pragma stream
 */
 
 var Buffer = require('buffer');
