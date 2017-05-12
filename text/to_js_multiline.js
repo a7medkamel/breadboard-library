@@ -10,11 +10,10 @@
   "content-type" : "application/javascript"
 }
 @pragma editor replace
-@pragma stream
 */
 
 module.exports = function(req, res, next) {
-  var buf = req.body.toString('utf8')
+  var buf = Buffer.from(req.body, 'utf8')
     , arr = []
     ;
 
